@@ -18,7 +18,7 @@ class ScreeningTool {
             });
         }
 
-        const resetBtn = document.getElementById('reset-btn');
+        const resetBtn = document.getElementById('resetBtn');
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
                 this.resetForm();
@@ -99,12 +99,12 @@ class ScreeningTool {
         const outcome = this.computeScreeningOutcome(state);
         const hasUtility = state.utilities.length > 0;
 
-        const resultsStatusEl = document.getElementById('results-status');
-        const resultsBodyEl = document.getElementById('results-body');
+        const resultsStatusEl = document.getElementById('resultsStatus');
+        const resultsBodyEl = document.getElementById('resultsBody');
 
         if (!hasUtility) {
             resultsStatusEl.textContent = 'Add at least one IOU first';
-            resultsStatusEl.className = 'pill is-danger';
+            resultsStatusEl.className = 'badge badge-danger';
             resultsBodyEl.innerHTML = `
                 <p>
                     Start by figuring out which <strong>investor-owned utilities</strong> serve this home. 
@@ -120,7 +120,13 @@ class ScreeningTool {
         }
 
         resultsStatusEl.textContent = outcome.label;
-        resultsStatusEl.className = `pill ${outcome.pillClass}`;
+        // Map old pill classes to new badge classes
+        const badgeClassMap = {
+            'is-success': 'badge-success',
+            'is-warning': 'badge-warning',
+            'is-soft': 'badge-neutral'
+        };
+        resultsStatusEl.className = `badge ${badgeClassMap[outcome.pillClass]}`;
 
         const programs = dataLoader.getPrograms();
         const matchedPrograms = programs.filter(p => state.utilities.includes(p.id));
@@ -161,7 +167,7 @@ class ScreeningTool {
         this.highlightSelectedUtilities(state.utilities);
         
         // Scroll to results
-        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     async loadStateWideResources() {
@@ -191,11 +197,11 @@ class ScreeningTool {
 
     resetForm() {
         document.getElementById('screeningForm').reset();
-        const resultsStatusEl = document.getElementById('results-status');
-        const resultsBodyEl = document.getElementById('results-body');
+        const resultsStatusEl = document.getElementById('resultsStatus');
+        const resultsBodyEl = document.getElementById('resultsBody');
         
-        resultsStatusEl.textContent = 'No screening run yet';
-        resultsStatusEl.className = 'pill is-soft';
+        resultsStatusEl.textContent = 'Run screening above';
+        resultsStatusEl.className = 'badge badge-neutral';
         resultsBodyEl.innerHTML = `
             <p>
                 Run a screening to see: (1) how strong a fit these programs likely are, 
@@ -212,8 +218,41 @@ class ScreeningTool {
 }
 
 // Initialize on page load
-if (document.getElementById('screeningForm')) {
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('screeningForm')) {
         const screeningTool = new ScreeningTool();
+    }
+    
+    // Load resources immediately
+    if (document.getElementById('resourcesList')) {
+        loadResourcesList();
+    }
+});
+
+// Function to load resources list
+async function loadResourcesList() {
+    await dataLoader.loadData();
+    const resources = dataLoader.getStateWideResources();
+    const container = document.getElementById('resourcesList');
+    
+    if (!container) return;
+    
+    container.innerHTML = '<ul style="list-style: none; padding: 0; display: grid; gap: var(--space-4);">';
+    
+    resources.forEach(resource => {
+        const li = document.createElement('li');
+        li.style.borderLeft = '4px solid var(--color-primary)';
+        li.style.paddingLeft = 'var(--space-4)';
+        li.innerHTML = `
+            <h4 style="margin: 0 0 var(--space-2); color: var(--text-primary);">
+                <a href="${resource.url}" target="_blank" rel="noopener">${resource.title}</a>
+            </h4>
+            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                ${resource.description}
+            </p>
+        `;
+        container.querySelector('ul').appendChild(li);
     });
+    
+    container.innerHTML += '</ul>';
 }
