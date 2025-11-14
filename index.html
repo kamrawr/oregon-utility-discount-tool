@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oregon Utility Bill Discount Finder</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Oregon Utility Bill Discount Finder</strong></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">Screening Tool</a></li>
+            <li><a href="compare.html">Compare Programs</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="intro">
+            <hgroup>
+                <h1>Find Your Utility Bill Discount</h1>
+                <p>Oregon's investor-owned utilities offer income-qualified bill discounts that can reduce your electric or gas bill by 10-95%.</p>
+            </hgroup>
+            
+            <article>
+                <header><strong>Quick Facts</strong></header>
+                <ul>
+                    <li>✓ <strong>Self-attestation:</strong> No documentation required at application</li>
+                    <li>✓ <strong>Income-based:</strong> Programs serve households at or below 60% State Median Income</li>
+                    <li>✓ <strong>Multiple benefits:</strong> Bill discounts, arrearage relief, disconnection protections</li>
+                    <li>✓ <strong>All IOUs:</strong> PGE, Pacific Power, Idaho Power, NW Natural, Avista, Cascade Natural Gas</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="screening-tool">
+            <h2>Find Your Program</h2>
+            <p>Answer a few questions to find the right program for your household.</p>
+
+            <form id="screeningForm">
+                <!-- Step 1: Location -->
+                <div class="screening-step" id="step-location" data-step="1">
+                    <h3>Step 1: Where do you live?</h3>
+                    <label>
+                        <select id="location" name="location" required>
+                            <option value="">Select your area...</option>
+                            <option value="portland-metro">Portland Metro Area</option>
+                            <option value="willamette-valley">Willamette Valley</option>
+                            <option value="north-coast">North Coast</option>
+                            <option value="southern-oregon">Southern Oregon</option>
+                            <option value="eastern-oregon">Eastern Oregon</option>
+                            <option value="north-central-oregon">North-Central Oregon</option>
+                            <option value="baker-malheur-harney">Baker / Malheur / Harney County</option>
+                        </select>
+                    </label>
+                    <button type="button" class="next-btn" data-next="2">Next</button>
+                </div>
+
+                <!-- Step 2: Utility Type -->
+                <div class="screening-step" id="step-utility" data-step="2" style="display:none;">
+                    <h3>Step 2: What type of utility bill do you need help with?</h3>
+                    <fieldset>
+                        <label>
+                            <input type="checkbox" id="need-electric" name="utility-type" value="electric">
+                            Electric
+                        </label>
+                        <label>
+                            <input type="checkbox" id="need-gas" name="utility-type" value="gas">
+                            Natural Gas
+                        </label>
+                    </fieldset>
+                    <button type="button" class="back-btn" data-back="1">Back</button>
+                    <button type="button" class="next-btn" data-next="3">Next</button>
+                </div>
+
+                <!-- Step 3: Utility Company -->
+                <div class="screening-step" id="step-company" data-step="3" style="display:none;">
+                    <h3>Step 3: Who is your utility provider?</h3>
+                    <p><small>Check your utility bill if you're not sure.</small></p>
+                    <div id="utility-options"></div>
+                    <button type="button" class="back-btn" data-back="2">Back</button>
+                    <button type="button" class="next-btn" data-next="4">Next</button>
+                </div>
+
+                <!-- Step 4: Household Info -->
+                <div class="screening-step" id="step-household" data-step="4" style="display:none;">
+                    <h3>Step 4: Household Information</h3>
+                    <label>
+                        Number of people in your household:
+                        <input type="number" id="household-size" name="household-size" min="1" max="12" required>
+                    </label>
+                    <label>
+                        Total annual household income (before taxes):
+                        <input type="number" id="household-income" name="household-income" min="0" step="100" required>
+                    </label>
+                    <small>Include all income from household members (wages, benefits, SSI, etc.)</small>
+                    <button type="button" class="back-btn" data-back="3">Back</button>
+                    <button type="submit">Find My Programs</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="results" style="display:none;">
+            <h2>Your Recommended Programs</h2>
+            <div id="results-container"></div>
+            <button type="button" id="start-over">Start Over</button>
+        </section>
+
+        <section id="resources">
+            <h2>Statewide Resources</h2>
+            <div id="statewide-resources"></div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>
+            Data current as of 2025. Programs authorized under Oregon HB 2475 and OPUC Docket UM 2211.<br>
+            Tool maintained by <a href="https://github.com/isaiahkamrar">Community Consulting Partners LLC</a>.
+        </small>
+    </footer>
+
+    <script src="js/data-loader.js"></script>
+    <script src="js/screening.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>

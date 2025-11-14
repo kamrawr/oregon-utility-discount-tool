@@ -1,0 +1,295 @@
+{
+  "programs": [
+    {
+      "id": "pge",
+      "utility": "Portland General Electric (PGE)",
+      "fuel_type": "Electric",
+      "program_name": "Income-Qualified Bill Discount (IQBD)",
+      "service_areas": ["Portland metro", "Willamette Valley", "North Coast"],
+      "eligibility": {
+        "income_standard": "≤60% State Median Income (SMI)",
+        "tiers_based_on": "Income and energy burden",
+        "account_requirement": "PGE residential customer in Oregon"
+      },
+      "benefits": {
+        "discount_range": "15-60% monthly bill discount",
+        "tiers": "Multiple tiers based on income/energy burden",
+        "additional": ["Disconnection protections", "Fee waivers for low-income tiers"]
+      },
+      "application": {
+        "methods": ["Online form", "Phone", "Community agency partners"],
+        "documentation": "Self-attestation (no documents required)",
+        "primary_link": "https://portlandgeneral.com/energy-choices/low-income-customers",
+        "online_form": "https://portlandgeneral.com/energy-choices/low-income-customers",
+        "phone": "503-736-4777 or 1-800-542-8818"
+      },
+      "resources": [
+        {
+          "title": "PGE Income-Qualified Bill Discount",
+          "url": "https://portlandgeneral.com/energy-choices/low-income-customers"
+        },
+        {
+          "title": "OPUC Approval / Tariff (UM 2211)",
+          "url": "https://apps.puc.state.or.us/edockets/docket.asp?DocketID=22824"
+        }
+      ]
+    },
+    {
+      "id": "pacificpower",
+      "utility": "Pacific Power (PacifiCorp)",
+      "fuel_type": "Electric",
+      "program_name": "Oregon Low-Income Discount (LID) Program",
+      "service_areas": ["Southern Oregon", "Eastern Oregon", "Parts of Portland metro"],
+      "eligibility": {
+        "income_standard": "≤60% State Median Income (SMI)",
+        "tiers_based_on": "Income and energy burden",
+        "account_requirement": "Pacific Power residential customer in Oregon"
+      },
+      "benefits": {
+        "discount_range": "Tiered percentage discounts, up to 60%+ at highest tier",
+        "tiers": "Multiple tiers based on income/energy burden",
+        "additional": ["Arrearage relief eligibility", "Disconnection protections"]
+      },
+      "application": {
+        "methods": ["Online form", "Phone", "Community agency partners"],
+        "documentation": "Self-attestation (no documents required)",
+        "primary_link": "https://www.pacificpower.net/savings-energy-choices/income-qualified-programs.html",
+        "online_form": "https://www.pacificpower.net/savings-energy-choices/income-qualified-programs.html",
+        "phone": "1-888-221-7070"
+      },
+      "resources": [
+        {
+          "title": "Oregon Low-Income Discount Program",
+          "url": "https://www.pacificpower.net/savings-energy-choices/income-qualified-programs.html"
+        },
+        {
+          "title": "OPUC Approval / Tariff (UM 2211)",
+          "url": "https://apps.puc.state.or.us/edockets/docket.asp?DocketID=22824"
+        }
+      ]
+    },
+    {
+      "id": "nwnatural",
+      "utility": "NW Natural",
+      "fuel_type": "Natural Gas",
+      "program_name": "Income-Qualified Bill Discount",
+      "service_areas": ["Portland metro", "Willamette Valley", "Parts of Southern Oregon"],
+      "eligibility": {
+        "income_standard": "≤60% State Median Income (SMI)",
+        "tiers_based_on": "Income level",
+        "account_requirement": "NW Natural gas residential customer in Oregon"
+      },
+      "benefits": {
+        "discount_range": "Tiered discounts up to 70%+ at lowest income levels",
+        "tiers": "Multiple tiers aligned with UM 2211 framework",
+        "additional": ["Arrearage relief eligibility", "Enhanced shutoff protections"]
+      },
+      "application": {
+        "methods": ["Online form", "Phone", "Community Action Agencies"],
+        "documentation": "Self-attestation (no documents required)",
+        "primary_link": "https://www.nwnatural.com/about-us/rates-and-regulations/energy-assistance",
+        "online_form": "https://www.nwnatural.com/about-us/rates-and-regulations/energy-assistance",
+        "phone": "1-800-422-4012"
+      },
+      "resources": [
+        {
+          "title": "NW Natural Income-Qualified Bill Discount",
+          "url": "https://www.nwnatural.com/about-us/rates-and-regulations/energy-assistance"
+        },
+        {
+          "title": "OPUC Energy Affordability Slides",
+          "url": "https://www.oregon.gov/puc/utilities/Pages/Energy-Affordability.aspx"
+        }
+      ]
+    },
+    {
+      "id": "avista",
+      "utility": "Avista Utilities",
+      "fuel_type": "Natural Gas",
+      "program_name": "My Energy Discount – Oregon",
+      "service_areas": ["Medford", "Klamath Falls", "Parts of Southern Oregon"],
+      "eligibility": {
+        "income_standard": "≤60% State Median Income (SMI) or equivalent FPL",
+        "tiers_based_on": "Income level",
+        "account_requirement": "Avista gas residential customer in Oregon"
+      },
+      "benefits": {
+        "discount_range": "Up to ~90% bill discount at deepest tier",
+        "tiers": "Multiple SMI-based tiers with decreasing discounts",
+        "additional": ["Arrearage relief eligibility", "Disconnection protections"]
+      },
+      "application": {
+        "methods": ["Phone", "Online enrollment", "Community Action Agencies"],
+        "documentation": "Self-attestation (no documents required)",
+        "primary_link": "https://www.avistautilities.com/assistance/oregon",
+        "online_form": "https://www.avistautilities.com/assistance/oregon",
+        "phone": "1-800-227-9187"
+      },
+      "resources": [
+        {
+          "title": "Avista My Energy Discount – Oregon",
+          "url": "https://www.avistautilities.com/assistance/oregon"
+        },
+        {
+          "title": "OPUC Energy Affordability Documentation",
+          "url": "https://www.oregon.gov/puc/utilities/Pages/Energy-Affordability.aspx"
+        }
+      ]
+    },
+    {
+      "id": "cascade",
+      "utility": "Cascade Natural Gas",
+      "fuel_type": "Natural Gas",
+      "program_name": "Energy Discount Program (EDP)",
+      "service_areas": ["North-central Oregon", "Coastal areas", "Parts of Willamette Valley"],
+      "eligibility": {
+        "income_standard": "≤150% FPL or ≤60% SMI (whichever is better for customer)",
+        "tiers_based_on": "Income level (FPL or SMI percentages)",
+        "account_requirement": "Cascade Natural Gas residential customer in Oregon",
+        "special_notes": "Income excludes earnings from household members age 18 or younger"
+      },
+      "benefits": {
+        "discount_range": "15-95% monthly bill discount depending on tier",
+        "tiers": [
+          {
+            "tier": 1,
+            "income": "0-25% FPL / 0-15% SMI",
+            "bill_discount": "~95%",
+            "arrearage_relief": "90%"
+          },
+          {
+            "tier": 2,
+            "income": "26-50% FPL / 16-30% SMI",
+            "bill_discount": "~70%",
+            "arrearage_relief": "86%"
+          },
+          {
+            "tier": 3,
+            "income": "51-100% FPL / 31-45% SMI",
+            "bill_discount": "~45%",
+            "arrearage_relief": "83%"
+          },
+          {
+            "tier": 4,
+            "income": "101-150% FPL / 46-60% SMI",
+            "bill_discount": "~15%",
+            "arrearage_relief": "80%"
+          }
+        ],
+        "duration": "Benefits last up to 24 months, re-enrollment available",
+        "additional": ["Arrearage relief grants", "No data sharing with immigration authorities unless legally required"]
+      },
+      "application": {
+        "methods": ["Phone", "Online portal", "Community Action Agencies"],
+        "documentation": "Self-attestation (no documents required)",
+        "primary_link": "https://www.cngc.com/oregon/customer-service/payment-options-and-assistance",
+        "online_form": "https://www.cngc.com/oregon/customer-service/payment-options-and-assistance",
+        "phone": "1-888-522-1130"
+      },
+      "resources": [
+        {
+          "title": "Cascade Low-Income Assistance Programs",
+          "url": "https://www.cngc.com/oregon/customer-service/payment-options-and-assistance"
+        },
+        {
+          "title": "EDP Tariff (Schedule 36)",
+          "url": "https://apps.puc.state.or.us/edockets/docket.asp?DocketID=22824"
+        }
+      ]
+    },
+    {
+      "id": "idahopower",
+      "utility": "Idaho Power",
+      "fuel_type": "Electric",
+      "program_name": "Oregon Bill Discount Program",
+      "service_areas": ["Baker County", "Malheur County", "Harney County"],
+      "eligibility": {
+        "income_standard": "≤60% Oregon State Median Income (SMI)",
+        "tiers_based_on": "Energy burden (energy cost as % of income)",
+        "account_requirement": "Idaho Power residential customer in Oregon",
+        "special_notes": "Income guidelines updated each October; includes all taxable and non-taxable income"
+      },
+      "benefits": {
+        "discount_range": "10%, 25%, or 70% monthly bill discount",
+        "tiers": [
+          {
+            "tier": 1,
+            "discount": "70%",
+            "criteria": "Highest energy burden"
+          },
+          {
+            "tier": 2,
+            "discount": "25%",
+            "criteria": "Moderate energy burden"
+          },
+          {
+            "tier": 3,
+            "discount": "10%",
+            "criteria": "Lower energy burden"
+          }
+        ],
+        "additional": [
+          "Winter Protection Program (no disconnection Dec 1 - Mar 31)",
+          "Fee waivers: first 2 remote reconnections",
+          "Fee waivers: first in-person reconnection per year",
+          "All reconnection fees waived for Tier 1 or medical certificate holders"
+        ]
+      },
+      "application": {
+        "methods": ["Online form", "Phone", "Community support agencies"],
+        "documentation": "Self-attestation (no proof of income required at application)",
+        "primary_link": "https://www.idahopower.com/about-us/our-commitment/customer-assistance/oregon/",
+        "online_form": "https://www.idahopower.com/about-us/our-commitment/customer-assistance/oregon/",
+        "phone": "1-800-488-6151"
+      },
+      "resources": [
+        {
+          "title": "Idaho Power Oregon Assistance",
+          "url": "https://www.idahopower.com/about-us/our-commitment/customer-assistance/oregon/"
+        },
+        {
+          "title": "Oregon Bill Discount Terms & Conditions",
+          "url": "https://www.idahopower.com/about-us/our-commitment/customer-assistance/oregon/"
+        },
+        {
+          "title": "Oregon Bill Discount FAQ",
+          "url": "https://www.idahopower.com/about-us/our-commitment/customer-assistance/oregon/"
+        }
+      ]
+    }
+  ],
+  "statewide_resources": [
+    {
+      "title": "HB 2475 – Energy Affordability Act",
+      "url": "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2475",
+      "description": "Original legislation authorizing OPUC to approve income-qualified bill discounts"
+    },
+    {
+      "title": "OPUC Docket UM 2211 – Energy Affordability",
+      "url": "https://apps.puc.state.or.us/edockets/docket.asp?DocketID=22824",
+      "description": "Main regulatory docket with orders, tariffs, and program design details for all IOUs"
+    },
+    {
+      "title": "OPUC Energy Affordability Overview",
+      "url": "https://www.oregon.gov/puc/utilities/Pages/Energy-Affordability.aspx",
+      "description": "Staff presentations and summaries of discount tiers across utilities"
+    },
+    {
+      "title": "OHCS Income Matrices (SMI/FPL)",
+      "url": "https://www.oregon.gov/ohcs/get-involved/Pages/income-limits.aspx",
+      "description": "State median income and federal poverty level guidelines used for eligibility"
+    },
+    {
+      "title": "Oregon CUB – Bill Discount Explainer",
+      "url": "https://oregoncub.org/",
+      "description": "Consumer advocacy group with plain-language information on IOU programs"
+    }
+  ],
+  "income_qualification_notes": {
+    "smi_reference": "Most programs use ≤60% State Median Income (SMI) as the threshold",
+    "fpl_alternative": "Some utilities (Cascade, Idaho Power) also accept Federal Poverty Level (FPL) thresholds",
+    "household_size": "All programs require household size for income calculation",
+    "self_attestation": "No documentation required at application across all programs",
+    "liheap_coordination": "Many customers enrolled in LIHEAP automatically qualify"
+  }
+}
