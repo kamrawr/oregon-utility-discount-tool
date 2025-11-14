@@ -1,8 +1,8 @@
-# Oregon Utility Bill Discount Finder
+# Oregon Utility Bill Discount Navigator
 
-A high-quality, interactive screening tool to help Oregon households find and apply for income-qualified utility bill discount programs from investor-owned utilities (IOUs).
+A professional screening tool to help Oregon households find and apply for income-qualified utility bill discount programs from investor-owned utilities (IOUs). Built for CBOs, social workers, and community navigators.
 
-**Live Site:** [https://[YOUR-GITHUB-USERNAME].github.io/oregon-utility-discount-tool/](https://[YOUR-GITHUB-USERNAME].github.io/oregon-utility-discount-tool/)
+**🌐 Live Site:** [https://kamrawr.github.io/oregon-utility-discount-tool/](https://kamrawr.github.io/oregon-utility-discount-tool/)
 
 ## Overview
 
@@ -67,7 +67,7 @@ All program information is structured in JSON format (`data/programs.json`) incl
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[YOUR-USERNAME]/oregon-utility-discount-tool.git
+   git clone https://github.com/kamrawr/oregon-utility-discount-tool.git
    cd oregon-utility-discount-tool
    ```
 
@@ -87,21 +87,14 @@ All program information is structured in JSON format (`data/programs.json`) incl
 
 ### Deploy to GitHub Pages
 
-1. **Push to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/[YOUR-USERNAME]/oregon-utility-discount-tool.git
-   git push -u origin main
-   ```
+✅ **Already deployed!** This repository is live at:
+[https://kamrawr.github.io/oregon-utility-discount-tool/](https://kamrawr.github.io/oregon-utility-discount-tool/)
 
-2. **Enable GitHub Pages:**
-   - Go to repository **Settings** → **Pages**
-   - Under "Source", select **Deploy from a branch**
-   - Select **main** branch and **/ (root)** folder
-   - Click **Save**
-   - Your site will be live at: `https://[YOUR-USERNAME].github.io/oregon-utility-discount-tool/`
+To deploy your own fork:
+1. Fork this repository
+2. Go to **Settings** → **Pages**
+3. Select **main** branch and **/ (root)** folder
+4. Your site will be live at: `https://[YOUR-USERNAME].github.io/oregon-utility-discount-tool/`
 
 ## Project Structure
 
@@ -192,7 +185,7 @@ This project is licensed under the **MIT License**. Feel free to fork, adapt, an
 ## Contact
 
 For questions or partnership inquiries:
-- **GitHub:** [@isaiahkamrar](https://github.com/isaiahkamrar)
+- **GitHub:** [@kamrawr](https://github.com/kamrawr)
 - **Business:** Community Consulting Partners LLC
 
 ---
