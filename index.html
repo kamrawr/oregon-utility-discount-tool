@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oregon Utility Bill Discount Navigator | CBO Resource Tool</title>
-    <meta name="description" content="Professional screening tool for Oregon's income-qualified utility bill discount programs. Built for community organizations and navigators.">
+    <title>Screening Tool | Oregon Utility Bill Discount Navigator</title>
+    <meta name="description" content="Screen households for Oregon's income-qualified utility bill discount programs. Built for CBOs and community navigators.">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- Header with robust navigation -->
+    <!-- Header with navigation -->
     <header class="site-header">
         <div class="header-container">
             <div class="header-top">
@@ -21,13 +21,12 @@
             </p>
             
             <nav class="main-nav" aria-label="Main navigation">
-                <a href="#background" class="nav-link">Background</a>
-                <a href="#policy" class="nav-link">Policy Context</a>
-                <a href="#programs" class="nav-link">Programs Overview</a>
-                <a href="#screening" class="nav-link active">Screening Tool</a>
+                <a href="index.html" class="nav-link active">Screening Tool</a>
+                <a href="background.html" class="nav-link">Background</a>
+                <a href="policy.html" class="nav-link">Policy Context</a>
+                <a href="programs.html" class="nav-link">Programs Overview</a>
                 <a href="compare.html" class="nav-link">Compare Programs</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#how-to-use" class="nav-link">How to Use</a>
+                <a href="resources.html" class="nav-link">Resources</a>
             </nav>
             
             <div class="header-badges">
@@ -41,184 +40,8 @@
 
     <!-- Main content area -->
     <div class="page-container">
-        <!-- Background Section -->
-        <section id="background" class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <span aria-hidden="true">📋</span>
-                    Background & Purpose
-                </h2>
-                <p class="card-description">Understanding Oregon's energy affordability landscape</p>
-            </div>
-            
-            <h3>What This Tool Does</h3>
-            <p>
-                This navigator helps community-based organizations (CBOs), social service agencies, and energy navigators 
-                quickly screen households for income-qualified utility bill discount programs offered by Oregon's 
-                <strong>investor-owned utilities (IOUs)</strong>.
-            </p>
-            
-            <h3>The Challenge We're Solving</h3>
-            <p>
-                Oregon has <strong>six different investor-owned utilities</strong>, each with their own bill discount program, 
-                eligibility rules, and application processes. CBO staff need to:
-            </p>
-            <ul>
-                <li>Quickly identify which utility(ies) serve a household</li>
-                <li>Understand eligibility requirements across multiple programs</li>
-                <li>Navigate clients to the correct application</li>
-                <li>Know what talking points work for building trust</li>
-            </ul>
-            
-            <h3>Who This Tool Serves</h3>
-            <ul>
-                <li><strong>Community Action Agencies</strong> administering LIHEAP and weatherization</li>
-                <li><strong>Social workers</strong> doing intake for families needing utility assistance</li>
-                <li><strong>Housing navigators</strong> helping with move-in costs and ongoing stability</li>
-                <li><strong>Energy coaches</strong> at utilities and nonprofits</li>
-                <li><strong>211 operators</strong> and information & referral specialists</li>
-            </ul>
-            
-            <div class="badge-success" style="padding: 1rem; border-radius: var(--border-radius); margin-top: var(--space-4);">
-                <strong>Key Insight:</strong> These programs use <strong>self-attestation</strong> — households don't need to 
-                upload paystubs or documents at application. This is a huge trust-building opportunity.
-            </div>
-        </section>
-
-        <!-- Policy Context Section -->
-        <section id="policy" class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <span aria-hidden="true">⚖️</span>
-                    Policy Context
-                </h2>
-                <p class="card-description">The legal and regulatory framework behind these programs</p>
-            </div>
-            
-            <h3>HB 2475: Oregon's Energy Affordability Act (2019)</h3>
-            <p>
-                <strong>House Bill 2475</strong> gave the Oregon Public Utility Commission (OPUC) authority to require 
-                investor-owned utilities to offer income-qualified bill discount programs. The law established:
-            </p>
-            <ul>
-                <li>Percentage-of-bill discounts for low-income customers</li>
-                <li>Arrearage relief (help paying off past-due balances)</li>
-                <li>Enhanced shutoff protections during extreme weather</li>
-                <li>Simplified enrollment via self-attestation</li>
-            </ul>
-            <p>
-                <a href="https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2475" target="_blank" rel="noopener">
-                    Read the full text of HB 2475 →
-                </a>
-            </p>
-            
-            <h3>OPUC Docket UM 2211: Energy Affordability</h3>
-            <p>
-                The OPUC's <strong>UM 2211 docket</strong> is where the rubber meets the road. This is the regulatory proceeding 
-                that sets the specific rules for how each utility implements their program:
-            </p>
-            <ul>
-                <li>Income eligibility thresholds (generally ≤60% State Median Income)</li>
-                <li>Discount tier structures (deeper discounts for lowest incomes)</li>
-                <li>Application procedures and self-attestation protocols</li>
-                <li>Arrearage relief amounts and eligibility</li>
-                <li>Program evaluation and reporting requirements</li>
-            </ul>
-            <p>
-                <a href="https://apps.puc.state.or.us/edockets/docket.asp?DocketID=22824" target="_blank" rel="noopener">
-                    Explore the UM 2211 docket →
-                </a>
-            </p>
-            
-            <h3>Key Policy Principles</h3>
-            <div style="display: grid; gap: var(--space-3); margin-top: var(--space-4);">
-                <div class="badge-primary" style="padding: var(--space-4); border-radius: var(--border-radius);">
-                    <strong>Equity:</strong> Programs are designed to reach customers who face the highest energy burdens 
-                    (spend the most on energy as a % of income).
-                </div>
-                <div class="badge-primary" style="padding: var(--space-4); border-radius: var(--border-radius);">
-                    <strong>Accessibility:</strong> Self-attestation removes documentation barriers that often exclude 
-                    undocumented residents, people with unstable housing, or those wary of sharing paperwork.
-                </div>
-                <div class="badge-primary" style="padding: var(--space-4); border-radius: var(--border-radius);">
-                    <strong>Coordination:</strong> These discounts are designed to <em>stack</em> with other aid (LIHEAP, OEAP, 
-                    Oregon Energy Fund) — not replace it.
-                </div>
-            </div>
-        </section>
-
-        <!-- Programs Overview -->
-        <section id="programs" class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <span aria-hidden="true">⚡</span>
-                    Programs Overview
-                </h2>
-                <p class="card-description">Quick reference for all 6 IOU bill discount programs</p>
-            </div>
-            
-            <p>
-                Oregon has <strong>six investor-owned utilities</strong> — three serving electricity, three serving natural gas. 
-                All programs operate under the same state framework but have different names, tiers, and application flows.
-            </p>
-            
-            <h3>Electric Utilities</h3>
-            <div style="display: grid; gap: var(--space-4); margin: var(--space-4) 0;">
-                <div style="border-left: 4px solid var(--color-warning); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">Portland General Electric (PGE)</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> Income-Qualified Bill Discount (IQBD)</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> 15-60% off monthly bill</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> Portland metro, Willamette Valley, North Coast</p>
-                </div>
-                
-                <div style="border-left: 4px solid var(--color-warning); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">Pacific Power (PacifiCorp)</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> Oregon Low-Income Discount (LID)</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> Up to 60%+ off monthly bill</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> Southern Oregon, Eastern Oregon, parts of Portland metro</p>
-                </div>
-                
-                <div style="border-left: 4px solid var(--color-warning); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">Idaho Power</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> Oregon Bill Discount Program</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> 10%, 25%, or 70% off monthly bill</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> Baker, Malheur, Harney counties (far eastern Oregon)</p>
-                </div>
-            </div>
-            
-            <h3>Natural Gas Utilities</h3>
-            <div style="display: grid; gap: var(--space-4); margin: var(--space-4) 0;">
-                <div style="border-left: 4px solid var(--color-info); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">NW Natural</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> Income-Qualified Bill Discount</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> Up to 70%+ off monthly bill</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> Portland metro, Willamette Valley</p>
-                </div>
-                
-                <div style="border-left: 4px solid var(--color-info); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">Avista Utilities</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> My Energy Discount – Oregon</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> Up to 90% off monthly bill</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> Medford, Klamath Falls, parts of Southern Oregon</p>
-                </div>
-                
-                <div style="border-left: 4px solid var(--color-info); padding-left: var(--space-4);">
-                    <h4 style="margin: 0 0 var(--space-2);">Cascade Natural Gas</h4>
-                    <p style="margin: 0;"><strong>Program:</strong> Energy Discount Program (EDP)</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Discount:</strong> 15-95% off monthly bill + arrearage relief</p>
-                    <p style="margin: var(--space-1) 0;"><strong>Coverage:</strong> North-central Oregon, Coastal areas</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: var(--space-6);">
-                <a href="compare.html" class="btn btn-secondary">
-                    Compare All Programs Side-by-Side →
-                </a>
-            </p>
-        </section>
-
         <!-- Screening Tool (Two-column layout) -->
-        <section id="screening">
+        <section>
             <div class="two-column-layout">
                 <!-- Main screening form -->
                 <div class="main-content">
@@ -382,52 +205,18 @@
                             </li>
                         </ul>
                     </div>
+
+                    <div class="card" style="margin-top: var(--space-4);">
+                        <h3>Quick Links</h3>
+                        <ul style="font-size: var(--font-size-sm); list-style: none; padding: 0;">
+                            <li style="margin-bottom: var(--space-2);"><a href="programs.html">→ See All 6 Programs</a></li>
+                            <li style="margin-bottom: var(--space-2);"><a href="compare.html">→ Compare Side-by-Side</a></li>
+                            <li style="margin-bottom: var(--space-2);"><a href="resources.html">→ Application Links</a></li>
+                            <li style="margin-bottom: var(--space-2);"><a href="policy.html">→ Policy Framework</a></li>
+                        </ul>
+                    </div>
                 </aside>
             </div>
-        </section>
-
-        <!-- Resources Section -->
-        <section id="resources" class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <span aria-hidden="true">📚</span>
-                    Resources & Links
-                </h2>
-                <p class="card-description">Essential policy documents and partner resources</p>
-            </div>
-            
-            <div id="resourcesList"></div>
-        </section>
-
-        <!-- How to Use Section -->
-        <section id="how-to-use" class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <span aria-hidden="true">💡</span>
-                    How to Use This Tool
-                </h2>
-            </div>
-            
-            <h3>For Direct Client Services</h3>
-            <ul>
-                <li>Use the screening tool during intake or follow-up appointments</li>
-                <li>Walk through applications together on the spot</li>
-                <li>Print or email program information for client reference</li>
-            </ul>
-            
-            <h3>For Staff Training</h3>
-            <ul>
-                <li>Share the "Background" and "Policy Context" sections in onboarding</li>
-                <li>Use the CBO coaching notes to standardize talking points</li>
-                <li>Practice screening scenarios in team meetings</li>
-            </ul>
-            
-            <h3>For Outreach Planning</h3>
-            <ul>
-                <li>Map which IOUs serve your service area</li>
-                <li>Build flyers and handouts using program details</li>
-                <li>Coordinate with utility outreach teams for joint events</li>
-            </ul>
         </section>
     </div>
 
@@ -439,9 +228,9 @@
             Data current as of January 2025 | Programs authorized under HB 2475 & OPUC UM 2211
         </p>
         <p style="margin-top: var(--space-4);">
-            <a href="https://github.com/isaiahkamrar" target="_blank">GitHub</a> | 
-            <a href="#background">About</a> | 
-            <a href="#resources">Resources</a>
+            <a href="https://github.com/kamrawr/oregon-utility-discount-tool" target="_blank">GitHub</a> | 
+            <a href="background.html">About</a> | 
+            <a href="resources.html">Resources</a>
         </p>
     </footer>
 

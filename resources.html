@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compare Programs | Oregon Utility Bill Discount Navigator</title>
-    <meta name="description" content="Side-by-side comparison of all Oregon IOU income-qualified bill discount programs">
+    <title>Resources & Links | Oregon Utility Bill Discount Navigator</title>
+    <meta name="description" content="Essential utility application links and policy documents for Oregon bill discount programs.">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- Header with navigation -->
     <header class="site-header">
         <div class="header-container">
             <div class="header-top">
@@ -25,47 +24,32 @@
                 <a href="background.html" class="nav-link">Background</a>
                 <a href="policy.html" class="nav-link">Policy Context</a>
                 <a href="programs.html" class="nav-link">Programs Overview</a>
-                <a href="compare.html" class="nav-link active">Compare Programs</a>
-                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="compare.html" class="nav-link">Compare Programs</a>
+                <a href="resources.html" class="nav-link active">Resources</a>
             </nav>
             
             <div class="header-badges">
-                <span class="header-badge">6 IOUs Covered</span>
-                <span class="header-badge">Side-by-Side Comparison</span>
-                <span class="header-badge">Filter by Fuel Type</span>
+                <span class="header-badge">6 Application Links</span>
+                <span class="header-badge">Policy Documents</span>
+                <span class="header-badge">Quick Reference</span>
             </div>
         </div>
     </header>
 
-    <!-- Main content -->
     <div class="page-container">
         <section class="card">
             <div class="card-header">
                 <h2 class="card-title">
-                    <span aria-hidden="true">⚖️</span>
-                    Compare All Programs
+                    <span aria-hidden="true">📚</span>
+                    Resources & Links
                 </h2>
-                <p class="card-description">
-                    Side-by-side comparison of Oregon's six investor-owned utility bill discount programs
-                </p>
+                <p class="card-description">Essential policy documents and application links</p>
             </div>
             
-            <div class="form-group">
-                <label class="form-label" for="fuel-filter">Filter by fuel type:</label>
-                <select id="fuel-filter" style="max-width: 300px; padding: var(--space-3); border: 1px solid var(--border-color); border-radius: var(--border-radius); font-size: var(--font-size-base);">
-                    <option value="all">All Programs</option>
-                    <option value="electric">Electric Only</option>
-                    <option value="gas">Natural Gas Only</option>
-                </select>
-            </div>
+            <div id="resourcesList"></div>
         </section>
-
-        <div id="comparison-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6); margin-top: var(--space-6);">
-            <!-- Populated by JavaScript -->
-        </div>
     </div>
 
-    <!-- Footer -->
     <footer style="background: var(--bg-tertiary); padding: var(--space-8) var(--space-6); text-align: center; font-size: var(--font-size-sm); color: var(--text-tertiary);">
         <p>
             <strong>Oregon Utility Bill Discount Navigator</strong><br>
@@ -80,6 +64,6 @@
     </footer>
 
     <script src="js/data-loader.js"></script>
-    <script src="js/compare.js"></script>
+    <script src="js/screening-new.js"></script>
 </body>
 </html>
