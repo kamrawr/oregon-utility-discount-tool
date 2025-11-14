@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compare Programs - Oregon Utility Bill Discount Finder</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Compare Programs | Oregon Utility Bill Discount Navigator</title>
+    <meta name="description" content="Side-by-side comparison of all Oregon IOU income-qualified bill discount programs">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <nav class="container-fluid">
-        <ul>
-            <li><strong>Oregon Utility Bill Discount Finder</strong></li>
-        </ul>
-        <ul>
-            <li><a href="index.html">Screening Tool</a></li>
-            <li><a href="compare.html">Compare Programs</a></li>
-            <li><a href="index.html#resources">Resources</a></li>
-        </ul>
-    </nav>
+    <!-- Header with navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-top">
+                <h1 class="site-title">Oregon Utility Bill Discount Navigator</h1>
+            </div>
+            
+            <p class="site-tagline">
+                Professional screening tool for income-qualified utility bill discount programs across Oregon's investor-owned utilities.
+                Built for CBO staff, social workers, and community navigators.
+            </p>
+            
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html#background" class="nav-link">Background</a>
+                <a href="index.html#policy" class="nav-link">Policy Context</a>
+                <a href="index.html#programs" class="nav-link">Programs Overview</a>
+                <a href="index.html#screening" class="nav-link">Screening Tool</a>
+                <a href="compare.html" class="nav-link active">Compare Programs</a>
+                <a href="index.html#resources" class="nav-link">Resources</a>
+                <a href="index.html#how-to-use" class="nav-link">How to Use</a>
+            </nav>
+            
+            <div class="header-badges">
+                <span class="header-badge">6 IOUs Covered</span>
+                <span class="header-badge">Side-by-Side Comparison</span>
+                <span class="header-badge">Filter by Fuel Type</span>
+            </div>
+        </div>
+    </header>
 
-    <main class="container">
-        <hgroup>
-            <h1>Compare All Programs</h1>
-            <p>Side-by-side comparison of Oregon's six investor-owned utility bill discount programs.</p>
-        </hgroup>
-
-        <section id="filter-section">
-            <label>
-                Filter by fuel type:
-                <select id="fuel-filter">
+    <!-- Main content -->
+    <div class="page-container">
+        <section class="card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span aria-hidden="true">⚖️</span>
+                    Compare All Programs
+                </h2>
+                <p class="card-description">
+                    Side-by-side comparison of Oregon's six investor-owned utility bill discount programs
+                </p>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="fuel-filter">Filter by fuel type:</label>
+                <select id="fuel-filter" style="max-width: 300px; padding: var(--space-3); border: 1px solid var(--border-color); border-radius: var(--border-radius); font-size: var(--font-size-base);">
                     <option value="all">All Programs</option>
                     <option value="electric">Electric Only</option>
                     <option value="gas">Natural Gas Only</option>
                 </select>
-            </label>
+            </div>
         </section>
 
-        <section id="comparison-grid">
+        <div id="comparison-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-6); margin-top: var(--space-6);">
             <!-- Populated by JavaScript -->
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer class="container">
-        <small>
-            Data current as of 2025. Programs authorized under Oregon HB 2475 and OPUC Docket UM 2211.<br>
-            Tool maintained by <a href="https://github.com/isaiahkamrar">Community Consulting Partners LLC</a>.
-        </small>
+    <!-- Footer -->
+    <footer style="background: var(--bg-tertiary); padding: var(--space-8) var(--space-6); text-align: center; font-size: var(--font-size-sm); color: var(--text-tertiary);">
+        <p>
+            <strong>Oregon Utility Bill Discount Navigator</strong><br>
+            Maintained by Community Consulting Partners LLC (Isaiah Kamrar)<br>
+            Data current as of January 2025 | Programs authorized under HB 2475 & OPUC UM 2211
+        </p>
+        <p style="margin-top: var(--space-4);">
+            <a href="https://github.com/isaiahkamrar" target="_blank">GitHub</a> | 
+            <a href="index.html#background">About</a> | 
+            <a href="index.html#resources">Resources</a>
+        </p>
     </footer>
 
     <script src="js/data-loader.js"></script>

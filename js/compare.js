@@ -58,52 +58,61 @@ class ProgramComparison {
     }
 
     createComparisonCard(program) {
-        const article = document.createElement('article');
-        article.className = 'comparison-card';
+        const article = document.createElement('div');
+        article.className = 'card';
 
-        const fuelClass = program.fuel_type.toLowerCase().includes('electric') ? 'electric' : 'gas';
+        const fuelColor = program.fuel_type.toLowerCase().includes('electric') ? 'var(--color-warning)' : 'var(--color-info)';
 
         article.innerHTML = `
-            <div class="utility-name">${program.utility}</div>
-            <div class="program-name">${program.program_name}</div>
-            <span class="fuel-badge ${fuelClass}">${program.fuel_type}</span>
-
-            <div class="detail-section">
-                <h5>Service Areas</h5>
-                <p>${program.service_areas.join(', ')}</p>
+            <div style="border-left: 4px solid ${fuelColor}; padding-left: var(--space-4); margin-bottom: var(--space-4);">
+                <h3 style="margin: 0 0 var(--space-2);">
+                    ${program.utility}
+                    <span class="badge badge-neutral" style="margin-left: var(--space-2);">${program.fuel_type}</span>
+                </h3>
+                <p style="margin: 0; font-size: var(--font-size-sm); color: var(--text-tertiary);">
+                    ${program.program_name}
+                </p>
             </div>
 
-            <div class="detail-section">
-                <h5>Eligibility</h5>
-                <p><strong>Income:</strong> ${program.eligibility.income_standard}</p>
-                <p><strong>Tiers based on:</strong> ${program.eligibility.tiers_based_on}</p>
-                ${program.eligibility.special_notes ? `<p><small>${program.eligibility.special_notes}</small></p>` : ''}
+            <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: var(--font-size-base); margin-bottom: var(--space-2); color: var(--text-primary);">Service Areas</h4>
+                <p style="font-size: var(--font-size-sm); color: var(--text-secondary); margin: 0;">${program.service_areas.join(', ')}</p>
             </div>
 
-            <div class="detail-section">
-                <h5>Benefits</h5>
-                <p><strong>Discount:</strong> ${program.benefits.discount_range}</p>
+            <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: var(--font-size-base); margin-bottom: var(--space-2); color: var(--text-primary);">Eligibility</h4>
+                <p style="font-size: var(--font-size-sm); margin: var(--space-1) 0;"><strong>Income:</strong> ${program.eligibility.income_standard}</p>
+                <p style="font-size: var(--font-size-sm); margin: var(--space-1) 0;"><strong>Tiers based on:</strong> ${program.eligibility.tiers_based_on}</p>
+                ${program.eligibility.special_notes ? `<p style="font-size: var(--font-size-xs); color: var(--text-tertiary); margin-top: var(--space-2);">${program.eligibility.special_notes}</p>` : ''}
+            </div>
+
+            <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: var(--font-size-base); margin-bottom: var(--space-2); color: var(--text-primary);">Benefits</h4>
+                <p style="font-size: var(--font-size-sm); margin: var(--space-1) 0;"><strong>Discount:</strong> ${program.benefits.discount_range}</p>
                 ${this.renderTiers(program)}
-                ${program.benefits.duration ? `<p><small>${program.benefits.duration}</small></p>` : ''}
+                ${program.benefits.duration ? `<p style="font-size: var(--font-size-xs); color: var(--text-tertiary); margin-top: var(--space-2);">${program.benefits.duration}</p>` : ''}
             </div>
 
-            <div class="detail-section">
-                <h5>How to Apply</h5>
-                <ul>
-                    ${program.application.methods.map(m => `<li>${m}</li>`).join('')}
-                </ul>
-                <p><strong>Phone:</strong> ${program.application.phone}</p>
+            <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: var(--font-size-base); margin-bottom: var(--space-2); color: var(--text-primary);">How to Apply</h4>
+                <p style="font-size: var(--font-size-sm); margin: var(--space-1) 0;"><strong>Phone:</strong> ${program.application.phone}</p>
+                <p style="font-size: var(--font-size-sm); margin: var(--space-1) 0;"><strong>Methods:</strong> ${program.application.methods.join(', ')}</p>
             </div>
 
-            <div style="margin-top: 1rem;">
-                <a href="${program.application.primary_link}" target="_blank" role="button">Visit Program Page</a>
+            <div class="btn-group">
+                <a href="${program.application.online_form}" target="_blank" rel="noopener" class="btn btn-primary">
+                    Apply Online →
+                </a>
+                <a href="${program.application.primary_link}" target="_blank" rel="noopener" class="btn btn-secondary">
+                    Program Details
+                </a>
             </div>
 
-            <details style="margin-top: 1rem;">
-                <summary>Additional Resources</summary>
-                <ul>
+            <details style="margin-top: var(--space-4); font-size: var(--font-size-sm);">
+                <summary style="cursor: pointer; font-weight: var(--font-weight-semibold); color: var(--text-primary);">Additional Resources</summary>
+                <ul style="margin-top: var(--space-2); padding-left: var(--space-5);">
                     ${program.resources.map(r => `
-                        <li><a href="${r.url}" target="_blank">${r.title}</a></li>
+                        <li style="margin-bottom: var(--space-1);"><a href="${r.url}" target="_blank" rel="noopener">${r.title}</a></li>
                     `).join('')}
                 </ul>
             </details>
@@ -115,12 +124,12 @@ class ProgramComparison {
     renderTiers(program) {
         if (Array.isArray(program.benefits.tiers)) {
             return `
-                <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+                <ul style="font-size: var(--font-size-sm); margin-top: var(--space-2); padding-left: var(--space-5); line-height: var(--line-height-relaxed);">
                     ${program.benefits.tiers.map(tier => {
                         if (tier.income) {
-                            return `<li><strong>Tier ${tier.tier}:</strong> ${tier.income}<br>${tier.bill_discount} discount</li>`;
+                            return `<li style="margin-bottom: var(--space-1);"><strong>Tier ${tier.tier}:</strong> ${tier.income} → ${tier.bill_discount} discount</li>`;
                         } else if (tier.discount) {
-                            return `<li><strong>Tier ${tier.tier}:</strong> ${tier.discount} (${tier.criteria})</li>`;
+                            return `<li style="margin-bottom: var(--space-1);"><strong>Tier ${tier.tier}:</strong> ${tier.discount} (${tier.criteria})</li>`;
                         }
                         return '';
                     }).join('')}
