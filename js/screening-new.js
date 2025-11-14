@@ -146,22 +146,59 @@ class ScreeningTool {
             ? '<li>Because they\'re already in means-tested programs (SNAP, OHP, SSI, etc.), it\'s a strong sign they\'ll qualify here too.</li>'
             : '';
 
-        const utilitiesList = matchedPrograms
-            .map(u => `<li><strong>${u.utility} – ${u.program_name}</strong>: scroll to their card below and use the program link to start an application on the spot.</li>`)
-            .join('');
+        // Build detailed program cards
+        let programsHtml = '';
+        matchedPrograms.forEach(program => {
+            const fuelColor = program.fuel_type.toLowerCase().includes('electric') ? 'var(--color-warning)' : 'var(--color-info)';
+            programsHtml += `
+                <div style="border-left: 4px solid ${fuelColor}; padding-left: var(--space-4); background: var(--bg-secondary); padding: var(--space-4); border-radius: var(--border-radius); margin-bottom: var(--space-4);">
+                    <h4 style="margin: 0 0 var(--space-2);">
+                        ${program.utility}
+                        <span class="badge badge-neutral" style="margin-left: var(--space-2);">${program.fuel_type}</span>
+                    </h4>
+                    <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm);">
+                        <strong>Program:</strong> ${program.program_name}
+                    </p>
+                    <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm);">
+                        <strong>Discount:</strong> ${program.benefits.discount_range}
+                    </p>
+                    <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm);">
+                        <strong>Eligibility:</strong> ${program.eligibility.income_standard}
+                    </p>
+                    <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm);">
+                        <strong>Documentation:</strong> ${program.application.documentation}
+                    </p>
+                    <div style="margin-top: var(--space-3); display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                        <a href="${program.application.online_form}" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: var(--font-size-sm); padding: var(--space-2) var(--space-4);">
+                            Apply Online →
+                        </a>
+                        <a href="tel:${program.application.phone.replace(/[^0-9]/g, '')}" class="btn btn-secondary" style="font-size: var(--font-size-sm); padding: var(--space-2) var(--space-4);">
+                            📞 ${program.application.phone}
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
 
         resultsBodyEl.innerHTML = `
-            <p>${levelTextMap[outcome.level]}</p>
-            <ul>
-                ${utilitiesList}
+            <p style="font-size: var(--font-size-base); margin-bottom: var(--space-4);">${levelTextMap[outcome.level]}</p>
+            
+            <h4 style="margin: var(--space-4) 0 var(--space-3);">Recommended Programs:</h4>
+            ${programsHtml}
+            
+            <h4 style="margin: var(--space-5) 0 var(--space-3);">Action Steps:</h4>
+            <ul style="line-height: var(--line-height-relaxed);">
                 ${urgencyText}
                 ${benefitsText}
                 <li>Make it explicit that these discounts <strong>stack</strong> with LIHEAP, OEAP, Oregon Energy Fund, and other help. They don't "use up" other benefits.</li>
                 <li>Consider scheduling a brief follow-up once they've had a chance to see the first discounted bill. That builds trust and keeps them engaged.</li>
             </ul>
-            <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-muted);">
-                <strong>Reminder:</strong> This tool gives you a <em>screening</em>, not a promise. Final eligibility and discount level are determined by the utility.
-            </p>
+            
+            <div style="margin-top: var(--space-5); padding: var(--space-4); background: var(--color-info-bg); border-radius: var(--border-radius); border: 1px solid var(--color-info-border);">
+                <p style="margin: 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <strong>Reminder:</strong> This tool gives you a <em>screening</em>, not a promise. Final eligibility and discount level are determined by the utility based on their income tables and application review.
+                </p>
+            </div>
         `;
 
         this.highlightSelectedUtilities(state.utilities);
@@ -232,27 +269,61 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to load resources list
 async function loadResourcesList() {
     await dataLoader.loadData();
+    const programs = dataLoader.getPrograms();
     const resources = dataLoader.getStateWideResources();
     const container = document.getElementById('resourcesList');
     
     if (!container) return;
     
-    container.innerHTML = '<ul style="list-style: none; padding: 0; display: grid; gap: var(--space-4);">';
+    // Utility Programs Section
+    let html = '<h3 style="margin-bottom: var(--space-4);">Utility Application Links</h3>';
+    html += '<div style="display: grid; gap: var(--space-4); margin-bottom: var(--space-8);">';
     
-    resources.forEach(resource => {
-        const li = document.createElement('li');
-        li.style.borderLeft = '4px solid var(--color-primary)';
-        li.style.paddingLeft = 'var(--space-4)';
-        li.innerHTML = `
-            <h4 style="margin: 0 0 var(--space-2); color: var(--text-primary);">
-                <a href="${resource.url}" target="_blank" rel="noopener">${resource.title}</a>
-            </h4>
-            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
-                ${resource.description}
-            </p>
+    programs.forEach(program => {
+        const fuelColor = program.fuel_type.toLowerCase().includes('electric') ? 'var(--color-warning)' : 'var(--color-info)';
+        html += `
+            <div style="border-left: 4px solid ${fuelColor}; padding-left: var(--space-4); background: var(--bg-secondary); padding: var(--space-4); border-radius: var(--border-radius);">
+                <h4 style="margin: 0 0 var(--space-2); color: var(--text-primary);">
+                    ${program.utility}
+                    <span class="badge badge-neutral" style="margin-left: var(--space-2);">${program.fuel_type}</span>
+                </h4>
+                <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <strong>Program:</strong> ${program.program_name}
+                </p>
+                <p style="margin: var(--space-1) 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <strong>Discount:</strong> ${program.benefits.discount_range}
+                </p>
+                <div style="margin-top: var(--space-3); display: flex; gap: var(--space-2); flex-wrap: wrap;">
+                    <a href="${program.application.online_form}" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: var(--font-size-sm); padding: var(--space-2) var(--space-4);">
+                        Apply Online →
+                    </a>
+                    <a href="tel:${program.application.phone.replace(/[^0-9]/g, '')}" class="btn btn-secondary" style="font-size: var(--font-size-sm); padding: var(--space-2) var(--space-4);">
+                        📞 ${program.application.phone}
+                    </a>
+                </div>
+            </div>
         `;
-        container.querySelector('ul').appendChild(li);
     });
     
-    container.innerHTML += '</ul>';
+    html += '</div>';
+    
+    // Policy Resources Section
+    html += '<h3 style="margin-bottom: var(--space-4);">Policy & Background Resources</h3>';
+    html += '<ul style="list-style: none; padding: 0; display: grid; gap: var(--space-3);">';
+    
+    resources.forEach(resource => {
+        html += `
+            <li style="border-left: 4px solid var(--color-primary); padding-left: var(--space-4);">
+                <h4 style="margin: 0 0 var(--space-2); color: var(--text-primary);">
+                    <a href="${resource.url}" target="_blank" rel="noopener">${resource.title}</a>
+                </h4>
+                <p style="margin: 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    ${resource.description}
+                </p>
+            </li>
+        `;
+    });
+    
+    html += '</ul>';
+    container.innerHTML = html;
 }
