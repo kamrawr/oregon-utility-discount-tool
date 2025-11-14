@@ -8,123 +8,240 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="container-fluid">
+    <nav>
         <ul>
-            <li><strong>Oregon Utility Bill Discount Finder</strong></li>
+            <li><strong>Oregon Utility Bill Discount Navigator</strong></li>
         </ul>
         <ul>
             <li><a href="index.html">Screening Tool</a></li>
             <li><a href="compare.html">Compare Programs</a></li>
             <li><a href="#resources">Resources</a></li>
         </ul>
+        <p class="nav-subtitle">
+            Quick screening + deep links for <strong>income-qualified bill discount programs</strong> at Oregon's investor-owned utilities. 
+            Built for CBO staff and community navigators.
+        </p>
+        <div class="badge-row">
+            <span class="badge">IOUs only (no co-ops / PUDs)</span>
+            <span class="badge">Self-attestation — no income docs required at application</span>
+            <span class="badge">Screening ≠ final eligibility</span>
+        </div>
     </nav>
 
-    <main class="container">
-        <section id="intro">
-            <hgroup>
-                <h1>Find Your Utility Bill Discount</h1>
-                <p>Oregon's investor-owned utilities offer income-qualified bill discounts that can reduce your electric or gas bill by 10-95%.</p>
-            </hgroup>
-            
-            <article>
-                <header><strong>Quick Facts</strong></header>
-                <ul>
-                    <li>✓ <strong>Self-attestation:</strong> No documentation required at application</li>
-                    <li>✓ <strong>Income-based:</strong> Programs serve households at or below 60% State Median Income</li>
-                    <li>✓ <strong>Multiple benefits:</strong> Bill discounts, arrearage relief, disconnection protections</li>
-                    <li>✓ <strong>All IOUs:</strong> PGE, Pacific Power, Idaho Power, NW Natural, Avista, Cascade Natural Gas</li>
-                </ul>
-            </article>
+    <main class="container" style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1.5rem; align-items: flex-start; max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem;">
+        <div>
+        <section id="intro" class="card">
+            <h2>How This Tool Works</h2>
+            <p class="hint">
+                Use this with the household in front of you (or while planning outreach). 
+                It steers you to the right utility programs and provides talking points for CBO staff.
+            </p>
+            <div class="chips">
+                <span class="pill is-success">✓ Screen households quickly</span>
+                <span class="pill">Direct links to applications</span>
+                <span class="pill is-soft">CBO coaching notes</span>
+                <span class="pill is-warning">All 6 IOUs covered</span>
+            </div>
         </section>
 
-        <section id="screening-tool">
-            <h2>Find Your Program</h2>
-            <p>Answer a few questions to find the right program for your household.</p>
+        <section id="screening-tool" class="card">
+            <h2>
+                Household Screening
+                <span class="pill">Step 1: Get oriented</span>
+            </h2>
+            <p class="hint">Answer a few questions to screen households and build an action plan.</p>
 
-            <form id="screeningForm">
-                <!-- Step 1: Location -->
-                <div class="screening-step" id="step-location" data-step="1">
-                    <h3>Step 1: Where do you live?</h3>
-                    <label>
-                        <select id="location" name="location" required>
-                            <option value="">Select your area...</option>
-                            <option value="portland-metro">Portland Metro Area</option>
-                            <option value="willamette-valley">Willamette Valley</option>
-                            <option value="north-coast">North Coast</option>
-                            <option value="southern-oregon">Southern Oregon</option>
-                            <option value="eastern-oregon">Eastern Oregon</option>
-                            <option value="north-central-oregon">North-Central Oregon</option>
-                            <option value="baker-malheur-harney">Baker / Malheur / Harney County</option>
-                        </select>
-                    </label>
-                    <button type="button" class="next-btn" data-next="2">Next</button>
-                </div>
-
-                <!-- Step 2: Utility Type -->
-                <div class="screening-step" id="step-utility" data-step="2" style="display:none;">
-                    <h3>Step 2: What type of utility bill do you need help with?</h3>
-                    <fieldset>
-                        <label>
-                            <input type="checkbox" id="need-electric" name="utility-type" value="electric">
-                            Electric
+            <form id="screeningForm" novalidate>
+                <!-- Step 1: Utilities -->
+                <div class="screening-step" id="step-utilities" data-step="1">
+                    <h3>1. Which utilities does this home pay?</h3>
+                    <p class="hint">
+                        Check all <strong>investor-owned utilities (IOUs)</strong> that send bills to this address. 
+                        If they mention a PUD or co-op, those are outside this tool.
+                    </p>
+                    <div class="chips" id="utility-chips">
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="pge" />
+                            <strong>PGE</strong> (electric)
                         </label>
-                        <label>
-                            <input type="checkbox" id="need-gas" name="utility-type" value="gas">
-                            Natural Gas
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="pacificpower" />
+                            <strong>Pacific Power</strong> (electric)
                         </label>
-                    </fieldset>
-                    <button type="button" class="back-btn" data-back="1">Back</button>
-                    <button type="button" class="next-btn" data-next="3">Next</button>
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="nwnatural" />
+                            <strong>NW Natural</strong> (gas)
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="cascade" />
+                            <strong>Cascade</strong> (gas)
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="avista" />
+                            <strong>Avista</strong> (gas)
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="utility" value="idahopower" />
+                            <strong>Idaho Power</strong> (electric, E. Oregon)
+                        </label>
+                    </div>
                 </div>
 
-                <!-- Step 3: Utility Company -->
-                <div class="screening-step" id="step-company" data-step="3" style="display:none;">
-                    <h3>Step 3: Who is your utility provider?</h3>
-                    <p><small>Check your utility bill if you're not sure.</small></p>
-                    <div id="utility-options"></div>
-                    <button type="button" class="back-btn" data-back="2">Back</button>
-                    <button type="button" class="next-btn" data-next="4">Next</button>
+                <!-- Step 2: Income Snapshot -->
+                <div class="fieldset">
+                    <h3>2. Income snapshot</h3>
+                    <p class="hint">
+                        These bill discounts normally use <strong>about 60% of State Median Income</strong> as the main cut-off. 
+                        If the household already qualifies for other low-income programs, that's a strong signal.
+                    </p>
+                    <p class="step-legend">Does this household receive any of these?</p>
+                    <div class="chips">
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="snap" />
+                            SNAP / EBT
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="ohp" />
+                            OHP / Medicaid
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="ssi" />
+                            SSI / SSDI
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="housing" />
+                            Section 8 / public housing
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="liheap" />
+                            LIHEAP / OEAP
+                        </label>
+                        <label class="chip">
+                            <input type="checkbox" name="benefit" value="wic" />
+                            WIC / TANF
+                        </label>
+                    </div>
+
+                    <p class="step-legend" style="margin-top: 1rem;">What's your gut on income?</p>
+                    <div class="chips">
+                        <label class="chip">
+                            <input type="radio" name="incomeFeel" value="strong" />
+                            Likely <strong>well below</strong> typical limits
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="incomeFeel" value="moderate" />
+                            Might qualify / not sure
+                        </label>
+                        <label class="chip">
+                            <input type="radio" name="incomeFeel" value="uncertain" />
+                            No idea yet
+                        </label>
+                    </div>
+                    <p class="hint" style="margin-top: 0.5rem;">
+                        For exact numbers, pull the latest income tables from each utility's program page below.
+                    </p>
                 </div>
 
-                <!-- Step 4: Household Info -->
-                <div class="screening-step" id="step-household" data-step="4" style="display:none;">
-                    <h3>Step 4: Household Information</h3>
-                    <label>
-                        Number of people in your household:
-                        <input type="number" id="household-size" name="household-size" min="1" max="12" required>
-                    </label>
-                    <label>
-                        Total annual household income (before taxes):
-                        <input type="number" id="household-income" name="household-income" min="0" step="100" required>
-                    </label>
-                    <small>Include all income from household members (wages, benefits, SSI, etc.)</small>
-                    <button type="button" class="back-btn" data-back="3">Back</button>
-                    <button type="submit">Find My Programs</button>
+                <!-- Step 3: Urgency Check -->
+                <div class="fieldset">
+                    <h3>3. Urgency check</h3>
+                    <div class="chips">
+                        <label class="chip">
+                            <input type="checkbox" name="arrears" id="arrears-yes" />
+                            Behind on bills / shutoff notice / already disconnected
+                        </label>
+                    </div>
+                    <p class="hint">
+                        This bumps urgency. Several IOUs give extra protections and arrearage relief once someone is enrolled.
+                    </p>
+                </div>
+                <!-- Submit and Reset -->
+                <div class="btn-row">
+                    <button type="submit" class="btn-primary" id="screen-btn">
+                        <span>Screen & Build Action Plan</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                    <button type="button" class="btn-secondary" id="reset-btn">Clear form</button>
                 </div>
             </form>
         </section>
 
-        <section id="results" style="display:none;">
-            <h2>Your Recommended Programs</h2>
-            <div id="results-container"></div>
-            <button type="button" id="start-over">Start Over</button>
+        <section id="results" class="card" aria-labelledby="results-title">
+            <div class="results-header">
+                <h2 id="results-title">Screening Results & Action Steps</h2>
+                <span class="pill is-soft" id="results-status">No screening run yet</span>
+            </div>
+            <div class="results-body" id="results-body">
+                <p>
+                    Run a screening to see: (1) how strong a fit these programs likely are, 
+                    (2) which utilities to prioritize, and (3) what to actually say to the household.
+                </p>
+                <ul>
+                    <li><strong>Green = very likely eligible</strong> — move fast on applications.</li>
+                    <li><strong>Yellow = possible</strong> — still worth applying, especially if arrears.</li>
+                    <li><strong>Gray = unclear</strong> — you may need more income info or to start with consent / trust-building.</li>
+                </ul>
+            </div>
         </section>
 
-        <section id="resources">
-            <h2>Statewide Resources</h2>
-            <div id="statewide-resources"></div>
-        </section>
+        <!-- CBO Coaching Sidebar -->
+        <aside>
+            <section class="card sidebar-section">
+                <h2>Community-Minded Coaching</h2>
+                <ul class="sidebar-list">
+                    <li>
+                        <strong>Lead with relief, not paperwork.</strong>
+                        "There's a monthly discount you may qualify for on your utility bill. It's quick, based on your income, and you don't have to upload documents to apply."
+                    </li>
+                    <li>
+                        <strong>Names & trust:</strong> Ask who should be listed on the bill and who feels safest being the contact. Explain that <em>the utility decides eligibility</em>, not your CBO.
+                    </li>
+                    <li>
+                        <strong>PII & immigration anxiety:</strong> These applications generally don't ask about immigration status and often accept self-attested income. Review the form together on screen and let the customer skip anything they're not comfortable answering.
+                    </li>
+                    <li>
+                        <strong>Stack funding on purpose.</strong> Make it explicit: the discount <em>stacks with LIHEAP, OEAP, weatherization, and other aid</em>. You're not "using up" their eligibility.
+                    </li>
+                    <li>
+                        <strong>Normalize re-enrollment.</strong> Several programs require reconfirming income after a term (often 1-2 years). Capture a reminder in your CRM or calendar.
+                    </li>
+                </ul>
+                <p class="sidebar-small">
+                    ⚠️ Avoid promising confidentiality you can't guarantee. Instead: "The program has its own privacy rules. We can look at those together, and you can decide what feels right."
+                </p>
+            </section>
+
+            <section class="card sidebar-section" id="resources">
+                <h2>State & System Resources</h2>
+                <div id="statewide-resources"></div>
+                <p class="sidebar-small">
+                    Use these for staff training, deeper policy context, and to align your own intake scripts with statewide rules.
+                </p>
+            </section>
+
+            <section class="card sidebar-section">
+                <h2>How to Use This Tool</h2>
+                <ul class="sidebar-list">
+                    <li><strong>In session:</strong> Screen, identify utilities, then scroll to the program cards and apply together.</li>
+                    <li><strong>For staff:</strong> Use the coaching notes as training content for new navigators.</li>
+                    <li><strong>In planning:</strong> Map which IOUs your service area touches and build handouts from the directory.</li>
+                </ul>
+            </section>
+        </div>
+        </aside>
     </main>
 
-    <footer class="container">
-        <small>
-            Data current as of 2025. Programs authorized under Oregon HB 2475 and OPUC Docket UM 2211.<br>
-            Tool maintained by <a href="https://github.com/isaiahkamrar">Community Consulting Partners LLC</a>.
-        </small>
+    <footer style="max-width: 1200px; margin: 0 auto 2rem; padding: 0 1rem; font-size: 0.8rem; color: var(--text-muted);">
+        This page summarizes income-qualified bill discount programs for Oregon's <strong>investor-owned utilities</strong> 
+        (PGE, Pacific Power, NW Natural, Cascade Natural Gas, Avista, Idaho Power) and links directly to their public resources. 
+        Program rules and income tables change; always confirm on the utility site before telling someone they "will" qualify.
+        <br><br>
+        <strong>Maintained by:</strong> <a href="https://github.com/isaiahkamrar">Community Consulting Partners LLC</a> (Isaiah Kamrar) | 
+        Data current as of 2025 | Programs authorized under HB 2475 & OPUC UM 2211
     </footer>
 
     <script src="js/data-loader.js"></script>
-    <script src="js/screening.js"></script>
-    <script src="js/results.js"></script>
+    <script src="js/screening-new.js"></script>
+    <script src="js/compare.js"></script>
 </body>
 </html>
