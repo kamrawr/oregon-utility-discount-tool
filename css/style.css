@@ -1,4 +1,4 @@
-/* Custom styles for Oregon Utility Bill Discount Finder */
+/* Oregon Utility Bill Discount Navigator - Optimized UX */
 
 :root {
     --primary: #2563eb;
@@ -20,22 +20,67 @@
     --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /* Navigation */
 nav {
     background: linear-gradient(135deg, #0f172a, #1d4ed8);
     color: white;
-    padding: 1.75rem 1.5rem 1.5rem;
+    padding: 1.5rem;
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-title {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
 nav ul {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
     flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li a {
@@ -45,12 +90,7 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--accent-soft);
-}
-
-nav ul li strong {
-    color: white;
-    font-size: 1.25rem;
-    letter-spacing: 0.01em;
+    text-decoration: none;
 }
 
 .nav-subtitle {
@@ -66,7 +106,6 @@ nav ul li strong {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    font-size: 0.75rem;
 }
 
 .badge {
@@ -78,32 +117,99 @@ nav ul li strong {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
+    font-size: 0.75rem;
 }
 
-/* Screening steps */
-.screening-step {
+/* Main container */
+.main-container {
+    max-width: 1200px;
+    margin: 1.5rem auto 2rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.content-left {
+    min-width: 0;
+}
+
+aside {
+    min-width: 0;
+    position: sticky;
+    top: 180px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+/* Cards */
+.card {
     background: var(--bg-alt);
-    padding: 1.5rem;
     border-radius: var(--radius);
     border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.screening-step h3 {
-    margin-bottom: 1rem;
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card h2 {
     margin-top: 0;
-    color: var(--primary);
-    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+/* Form elements */
+.screening-step {
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+}
+
+.screening-step h3 {
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    color: var(--primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.screening-step:first-child h3 {
+    margin-top: 0;
+}
+
+.fieldset {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--border);
+}
+
+.fieldset:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .step-legend {
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text);
-    margin-bottom: 0.5rem;
+    margin: 0.75rem 0 0.5rem;
     display: block;
 }
 
@@ -114,68 +220,56 @@ nav ul li strong {
     line-height: 1.5;
 }
 
-/* Buttons */
-.next-btn, .back-btn {
-    margin-top: 1rem;
-    margin-right: 0.5rem;
+/* Chips */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
 }
 
-.back-btn {
-    background-color: var(--secondary);
-}
-
-#start-over {
-    margin-top: 2rem;
-}
-
-/* Results section */
-.program-card {
-    background: var(--card-background-color);
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.program-card header {
-    background-color: var(--primary);
-    color: white;
-    padding: 1rem;
-    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
-    border-radius: 6px 6px 0 0;
-}
-
-.program-card h3 {
-    margin: 0;
-    color: white;
-}
-
-.program-card .fuel-badge {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
+.chip {
+    padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    border: 2px solid var(--border);
+    background: #f9fafb;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.chip:hover {
+    border-color: var(--primary);
+    background: #f0f9ff;
+}
+
+.chip input[type="checkbox"],
+.chip input[type="radio"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.chip strong {
     font-weight: 600;
-    margin-left: 0.5rem;
 }
 
-.fuel-badge.electric {
-    background-color: #fff3cd;
-    border: 1px solid #fcd34d;
-    color: #92400e;
-}
-
-.fuel-badge.gas {
-    background-color: #dbeafe;
-    border: 1px solid #93c5fd;
+.chip:has(input:checked) {
+    background: var(--accent-soft);
+    border-color: var(--primary);
     color: var(--primary-dark);
+    font-weight: 500;
 }
 
+/* Pills/Badges */
 .pill {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    padding: 0.2rem 0.7rem;
+    padding: 0.25rem 0.7rem;
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -208,306 +302,87 @@ nav ul li strong {
     color: var(--success);
 }
 
-.eligibility-status {
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-.eligibility-status.eligible {
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid var(--success);
-}
-
-.eligibility-status.likely-eligible {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 2px solid var(--warning);
-}
-
-.eligibility-status.check-details {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 2px solid var(--danger);
-}
-
-.benefits-list {
-    background-color: var(--code-background-color);
-    padding: 1rem;
-    border-radius: 6px;
-    margin: 1rem 0;
-}
-
-.benefits-list h4 {
-    margin-top: 0;
-    color: var(--primary);
-}
-
-.action-buttons {
+/* Buttons */
+.btn-row {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     margin-top: 1.5rem;
-}
-
-.action-buttons a {
-    flex: 1;
-    text-align: center;
-}
-
-/* Resources section */
-.resource-card {
-    background: var(--card-background-color);
-    padding: 1rem;
-    border-left: 4px solid var(--primary);
-    margin-bottom: 1rem;
-}
-
-.resource-card h4 {
-    margin-top: 0;
-    color: var(--primary);
-}
-
-/* Comparison grid */
-#comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.comparison-card {
-    background: var(--card-background-color);
-    border: 1px solid var(--muted-border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.comparison-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.comparison-card h3 {
-    color: var(--primary);
-    margin-top: 0;
-}
-
-.comparison-card .utility-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.comparison-card .program-name {
-    font-size: 0.95rem;
-    color: var(--muted-color);
-    margin-bottom: 1rem;
-}
-
-.detail-section {
-    margin: 1rem 0;
-    padding: 0.75rem;
-    background-color: var(--code-background-color);
-    border-radius: 4px;
-}
-
-.detail-section h5 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-.detail-section ul {
-    margin: 0;
-    padding-left: 1.25rem;
-}
-
-.detail-section p {
-    margin: 0.25rem 0;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 900px) {
-    main.container {
-        grid-template-columns: 1fr !important;
-    }
-
-    #comparison-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-
-    .badge-row {
-        font-size: 0.7rem;
-    }
-}
-
-/* Utility option cards */
-.utility-option {
-    background: var(--card-background-color);
-    border: 2px solid var(--muted-border-color);
-    border-radius: 6px;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.utility-option:hover {
-    border-color: var(--primary);
-    background-color: var(--primary-hover);
-    color: white;
-}
-
-.utility-option input[type="checkbox"] {
-    margin-right: 0.75rem;
-}
-
-.utility-option.selected {
-    border-color: var(--primary);
-    background-color: #e3f2fd;
-}
-
-/* Progress indicator */
-.progress-indicator {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    padding: 0;
-    list-style: none;
-}
-
-.progress-indicator li {
-    flex: 1;
-    text-align: center;
-    padding: 0.5rem;
-    border-bottom: 3px solid var(--muted-border-color);
-    color: var(--muted-color);
-}
-
-.progress-indicator li.active {
-    border-bottom-color: var(--primary);
-    color: var(--primary);
-    font-weight: bold;
-}
-
-.progress-indicator li.completed {
-    border-bottom-color: var(--success);
-    color: var(--success);
-}
-
-/* Income calculator helper */
-.income-helper {
-    background-color: #e3f2fd;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-
-.income-helper summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.income-helper details[open] {
-    padding-bottom: 0.5rem;
-}
-
-/* Chips for multi-select */
-.chips {
-    display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0.75rem 0;
 }
 
-.chip {
-    padding: 0.35rem 0.75rem;
+button {
+    appearance: none;
+    border: none;
+    padding: 0.65rem 1.5rem;
     border-radius: 999px;
-    font-size: 0.85rem;
-    border: 2px solid var(--border);
-    background: #f9fafb;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     transition: all 0.2s;
-    user-select: none;
 }
 
-.chip:hover {
-    border-color: var(--primary);
-    background: #f0f9ff;
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-.chip input[type="checkbox"],
-.chip input[type="radio"] {
-    margin: 0;
-    cursor: pointer;
+.btn-primary:hover:not(:disabled) {
+    background: var(--primary-hover);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    transform: translateY(-1px);
 }
 
-.chip strong {
-    font-weight: 600;
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.chip:has(input:checked) {
-    background: var(--accent-soft);
-    border-color: var(--primary);
-    color: var(--primary-dark);
+.btn-secondary {
+    background: #f3f4f6;
+    color: var(--text);
+    border: 1px solid var(--border);
 }
 
-/* Fieldset styling */
-.fieldset {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px dashed var(--border);
+.btn-secondary:hover {
+    background: #e5e7eb;
 }
 
-.fieldset:last-of-type {
-    border-bottom: none;
-    padding-bottom: 0;
+/* Results */
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
 }
 
-/* Coach notes */
-.coach-note {
-    background: var(--warning-bg);
-    border-radius: 8px;
-    border: 1px solid #fcd34d;
-    padding: 0.75rem 1rem;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--warning);
+.results-body {
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
-.coach-note strong {
-    font-weight: 600;
-    color: #78350f;
+.results-body ul {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
 }
 
-/* Sidebar sections */
+.results-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* Sidebar */
 .sidebar-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .sidebar-section h2 {
     font-size: 1.05rem;
-    margin-top: 0;
     margin-bottom: 0.75rem;
-    color: var(--text);
 }
 
 .sidebar-list {
@@ -543,4 +418,109 @@ nav ul li strong {
     color: var(--text-muted);
     margin-top: 0.75rem;
     line-height: 1.5;
+}
+
+/* Coach notes */
+.coach-note {
+    background: var(--warning-bg);
+    border-radius: 8px;
+    border: 1px solid #fcd34d;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--warning);
+    line-height: 1.6;
+}
+
+.coach-note strong {
+    font-weight: 600;
+    color: #78350f;
+}
+
+/* Utility cards (for compare page / future use) */
+.utility-card {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: #f9fafb;
+    padding: 1rem;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.utility-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        padding: 0 0.75rem;
+        margin: 1rem auto 1.5rem;
+    }
+
+    .nav-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-title {
+        font-size: 1.15rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    aside {
+        position: static;
+        max-height: none;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+    
+    .btn-row {
+        flex-direction: column;
+    }
+
+    .btn-row button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .badge-row {
+        font-size: 0.7rem;
+    }
+
+    .chips {
+        gap: 0.4rem;
+    }
+
+    .chip {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+    }
+
+    .screening-step h3 {
+        font-size: 1rem;
+    }
 }

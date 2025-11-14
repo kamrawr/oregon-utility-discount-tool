@@ -9,27 +9,29 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li><strong>Oregon Utility Bill Discount Navigator</strong></li>
-        </ul>
-        <ul>
-            <li><a href="index.html">Screening Tool</a></li>
-            <li><a href="compare.html">Compare Programs</a></li>
-            <li><a href="#resources">Resources</a></li>
-        </ul>
-        <p class="nav-subtitle">
-            Quick screening + deep links for <strong>income-qualified bill discount programs</strong> at Oregon's investor-owned utilities. 
-            Built for CBO staff and community navigators.
-        </p>
-        <div class="badge-row">
-            <span class="badge">IOUs only (no co-ops / PUDs)</span>
-            <span class="badge">Self-attestation — no income docs required at application</span>
-            <span class="badge">Screening ≠ final eligibility</span>
+        <div class="nav-container">
+            <div class="nav-header">
+                <h1 class="nav-title">Oregon Utility Bill Discount Navigator</h1>
+                <ul>
+                    <li><a href="index.html">Screening Tool</a></li>
+                    <li><a href="compare.html">Compare Programs</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            <p class="nav-subtitle">
+                Quick screening + deep links for <strong>income-qualified bill discount programs</strong> at Oregon's investor-owned utilities. 
+                Built for CBO staff and community navigators.
+            </p>
+            <div class="badge-row">
+                <span class="badge">IOUs only (no co-ops / PUDs)</span>
+                <span class="badge">Self-attestation — no income docs required at application</span>
+                <span class="badge">Screening ≠ final eligibility</span>
+            </div>
         </div>
     </nav>
 
-    <main class="container" style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1.5rem; align-items: flex-start; max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem;">
-        <div>
+    <main class="main-container">
+        <div class="content-left">
         <section id="intro" class="card">
             <h2>How This Tool Works</h2>
             <p class="hint">
@@ -184,6 +186,8 @@
             </div>
         </section>
 
+        </div>
+        
         <!-- CBO Coaching Sidebar -->
         <aside>
             <section class="card sidebar-section">
@@ -227,7 +231,6 @@
                     <li><strong>In planning:</strong> Map which IOUs your service area touches and build handouts from the directory.</li>
                 </ul>
             </section>
-        </div>
         </aside>
     </main>
 
